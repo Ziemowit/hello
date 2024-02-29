@@ -58,7 +58,7 @@ jobs:
         with:
           valueFile: 'k8s/prod/hello-deployment.yaml'
           propertyPath: 'spec.template.spec.containers[0].image'
-          value: ${{ steps.meta.outputs.tags }}
+          value: 'kopytko'
           targetBranch: master
           createPR: true
           message: 'Update Image Version to ${{ steps.meta.outputs.tags }}'
