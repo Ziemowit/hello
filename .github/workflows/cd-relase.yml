@@ -57,7 +57,7 @@ jobs:
         with:
           format: 'YAML'
           valueFile: 'k8s/prod/hello-deployment.yaml'
-          propertyPath: 'metadata.kind'
+          propertyPath: 'spec.kind.spec.containers[0].image'
           value: 'kopytko'
           targetBranch: master
           createPR: true
