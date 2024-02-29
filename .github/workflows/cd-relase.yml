@@ -61,5 +61,6 @@ jobs:
           propertyPath: 'spec.kind.spec.containers[0].image'
           value: 'kopytko'
           targetBranch: master
+          branch: automation
           createPR: true
           message: 'Update Image Version to ${{ steps.meta.outputs.tags }}'
