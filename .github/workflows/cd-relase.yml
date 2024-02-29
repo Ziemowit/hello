@@ -60,6 +60,7 @@ jobs:
           valueFile: 'k8s/prod/hello-deployment.yaml'
           propertyPath: 'spec.kind.spec.containers[0].image'
           value: 'kopytko'
+          repository: ziemowit/infra
           targetBranch: master
           branch: automation
           createPR: true
