@@ -51,11 +51,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ziemowit/infra
-          path: k8s/dev
 
       - name: Update Image Version in the related HelmChart values.yaml
         uses: fjogeleit/yaml-update-action@main
         with:
+          format: 'YAML'
           valueFile: 'k8s/prod/hello-deployment.yaml'
           propertyPath: 'spec.template.spec.containers[0].image'
           value: 'kopytko'
