@@ -52,6 +52,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ziemowit/infra
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update the Image Version
         uses: fjogeleit/yaml-update-action@main
@@ -65,3 +66,4 @@ jobs:
           branch: automation
           createPR: true
           message: 'Update Image Version to ${{ steps.meta.outputs.tags }}'
+          token: ${{ secrets.GITHUB_TOKEN }}
