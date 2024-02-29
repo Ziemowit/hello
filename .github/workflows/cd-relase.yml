@@ -53,12 +53,12 @@ jobs:
         with:
           repository: ziemowit/infra
 
-      - name: Update Image Version in the related HelmChart values.yaml
+      - name: Update the Image Version
         uses: fjogeleit/yaml-update-action@main
         with:
           format: 'YAML'
           valueFile: 'k8s/prod/hello-deployment.yaml'
-          propertyPath: 'spec.kind.spec.containers[0].image'
+          propertyPath: 'spec.template.spec.containers[0].image'
           value: 'kopytko'
           repository: ziemowit/infra
           targetBranch: master
