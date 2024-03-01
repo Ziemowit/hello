@@ -60,7 +60,7 @@ jobs:
           format: 'YAML'
           valueFile: 'k8s/prod/hello-deployment.yaml'
           propertyPath: 'spec.template.spec.containers[0].image'
-          value: ${{ steps.meta.outputs.tags[0] }}
+          value: ${{  github.ref_name }}
           repository: ziemowit/infra
           targetBranch: master
           branch: automation
