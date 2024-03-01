@@ -48,22 +48,22 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
 
-#      - name: Checkout Target Repository
-#        uses: actions/checkout@v4
-#        with:
-#          repository: ziemowit/infra
-#          token: ${{ secrets.MAGIC_TOKEN }}
-#
-#      - name: Update the Image Version
-#        uses: fjogeleit/yaml-update-action@main
-#        with:
-#          format: 'YAML'
-#          valueFile: 'k8s/prod/hello-deployment.yaml'
-#          propertyPath: 'spec.template.spec.containers[0].image'
-#          value: 'kopytko'
-#          repository: ziemowit/infra
-#          targetBranch: master
-#          branch: automation
-#          createPR: true
-#          message: 'Update Image Version to ${{ steps.meta.outputs.tags }}'
-#          token: ${{ secrets.MAGIC_TOKEN }}
+      - name: Checkout Target Repository
+        uses: actions/checkout@v4
+        with:
+          repository: ziemowit/infra
+          token: ${{ secrets.MAGIC_TOKEN }}
+
+      - name: Update the Image Version
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          format: 'YAML'
+          valueFile: 'k8s/prod/hello-deployment.yaml'
+          propertyPath: 'spec.template.spec.containers[0].image'
+          value: ${{ steps.meta.outputs.tags[0] }}
+          repository: ziemowit/infra
+          targetBranch: master
+          branch: automation
+          createPR: true
+          message: 'Update Image Version to ${{ steps.meta.outputs.tags[0] }}'
+          token: ${{ secrets.MAGIC_TOKEN }}
